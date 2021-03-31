@@ -7,14 +7,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+    <ion-row style="background-color: lightgray">
+      <ion-col size="3">Employee ID</ion-col>
+      <ion-col size="3">Employee Name</ion-col>
+      <ion-col size="3">Deprtment</ion-col>
+      <ion-col size="3">Employee Salary</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row *ngFor="let emp of result">
+      <ion-col size="3">{{emp.e_id}}</ion-col>
+      <ion-col size="3">{{emp.e_name}}</ion-col>
+      <ion-col size="3">{{emp.d_name}}</ion-col>
+      <ion-col size="3">{{emp.e_salary}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

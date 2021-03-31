@@ -1,0 +1,40 @@
+{
+  "database": "employee-db",
+  "version": 1,
+  "encrypted": false,
+  "mode": "full",
+  "tables": [
+    {
+      "name": "Department",
+      "schema": [
+        { "column": "d_id", "value": "INTEGER PRIMARY KEY NOT NULL" },
+        { "column": "d_name", "value": "TEXT NOT NULL" }
+      ],
+      "values": [
+        [1, "Engineering"],
+        [2, "QA"],
+        [3, "HR"]
+      ]
+    },
+    {
+      "name": "Employee",
+      "schema": [
+        { "column": "e_id", "value": "INTEGER PRIMARY KEY NOT NULL" },
+        { "column": "e_name", "value": "TEXT NOT NULL" },
+        { "column": "d_id", "value": "INTEGER" },
+        { "column": "e_salary", "value": "INTEGER" },
+        {
+          "foreignkey": "d_id",
+          "value": "REFERENCES Department(d_id)"
+        }
+      ],
+      "values": [
+        [101, "Abhishek",1,50000],
+        [102, "Ravi",2,40000],
+        [103, "Sam",3,10000],
+        [104, "Joe",2,12000],
+        [105, "Rahul",1,120000]
+      ]
+    }
+  ]
+}

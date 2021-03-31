@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from './../Services/database.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+    result=[];
+
+  constructor(private dbService:DatabaseService) {
+    this.loadProducts();
+  }
+  loadProducts(){
+    this.dbService.getProductList().subscribe((data)=>{
+      this.result = data.values;
+      console.log('employees: ',this.result);
+    })
+  }
 
 }
